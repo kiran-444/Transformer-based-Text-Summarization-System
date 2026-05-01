@@ -2,7 +2,7 @@
 
 A dialogue summarization web app that takes long text or conversation as input and generates a concise summary using a fine-tuned T5 transformer model served through a Flask web interface.
 
-![Text Summarizer UI](static/images/Demo-project-imagee.png)
+![Text Summarizer UI](static/images/Demo-project-image.png)
 
 ---
 
