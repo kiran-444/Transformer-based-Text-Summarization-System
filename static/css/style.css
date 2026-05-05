@@ -1,68 +1,207 @@
+/* ── Reset & base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
 
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fff7ed;
-        color: #333;
-      }
-      .container {
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0 0 60px;
+  background-color: #fff7ed;
+  color: #333;
+}
 
-      h1 {
-        text-align: center;
-        color: #fb923c;
-      }
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 680px;
+  margin: 50px auto;
+  padding: 28px 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+}
 
-      h3 {
-        text-align: center;
-        margin-top: -20px;
-        margin-bottom: 40px;
-      }
+/* ── Headings ─────────────────────────────────────────────────────────────── */
+h1 {
+  text-align: center;
+  color: #fb923c;
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
 
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
+h3 {
+  text-align: center;
+  margin-top: -14px;
+  margin-bottom: 24px;
+  color: #666;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
 
-      textarea {
-        height: 150px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-      }
+p {
+  font-size: 0.93rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
 
-      button {
-        background-color: #fb923c;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
+/* ── Example chips ────────────────────────────────────────────────────────── */
+.example-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
 
-      button:hover {
-        background-color: #f97316;
-      }
+.example-label {
+  font-size: 0.82rem;
+  color: #888;
+  white-space: nowrap;
+}
 
-      #summary-output {
-        margin-top: 20px;
-        background: #ffedd5;
-        padding: 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
+.chip {
+  background: #fff7ed;
+  border: 1.5px solid #fb923c;
+  color: #fb923c;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
 
-      #summary-heading {
-        margin-top: 0px;
-        margin-bottom: 0px;
-      }
+.chip:hover {
+  background: #fb923c;
+  color: #fff;
+}
+
+/* ── Form ─────────────────────────────────────────────────────────────────── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+textarea {
+  height: 170px;
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+  line-height: 1.55;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #fb923c;
+}
+
+button[type="submit"] {
+  background-color: #fb923c;
+  color: white;
+  border: none;
+  padding: 11px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.18s, opacity 0.18s;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #f97316;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Overall summary ──────────────────────────────────────────────────────── */
+#summary-output {
+  margin-top: 22px;
+  background: #ffedd5;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid #fed7aa;
+}
+
+#summary-heading {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #c2410c;
+}
+
+#summary-text {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: #444;
+}
+
+/* ── Per-person section ───────────────────────────────────────────────────── */
+#per-person-output {
+  margin-top: 22px;
+}
+
+.section-title {
+  text-align: left;
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ── Person card ──────────────────────────────────────────────────────────── */
+.person-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.18s;
+}
+
+.person-card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.person-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.person-body {
+  flex: 1;
+}
+
+.person-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.person-summary {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ── Utility ──────────────────────────────────────────────────────────────── */
+.hidden {
+  display: none;
+}

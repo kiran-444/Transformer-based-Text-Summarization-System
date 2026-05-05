@@ -10,22 +10,42 @@
     <div class="container">
       <h1>Text Summarizer</h1>
       <h3>using HuggingFace Transformer</h3>
-      <p>Write or Paste your content below for quick summarization.</p>
+      <p>
+        Write or paste your content below. For <strong>multi-person conversations</strong>,
+        start each line with the person's name followed by a colon — the app will
+        generate both an overall summary and a summary per person.
+      </p>
+
+      <!-- Example conversation chips -->
+      <div class="example-bar">
+        <span class="example-label">Try an example:</span>
+        <button class="chip" id="chip-baking">🍪 Baking</button>
+        <button class="chip" id="chip-project">💼 Project</button>
+        <button class="chip" id="chip-travel">✈️ Travel</button>
+      </div>
 
       <form id="summarization-form">
         <textarea
           id="dialogue-input"
-          placeholder="Enter your content here..."
+          placeholder="Enter plain text — or a conversation like:&#10;&#10;Amanda: I baked cookies. Do you want some?&#10;Jerry: Sure! What kind did you make?&#10;Amanda: Chocolate chip. I'll bring some tomorrow :-)&#10;Jerry: That sounds amazing, looking forward to it!"
           required
         ></textarea>
-        <button type="submit">Summarize</button>
+        <button type="submit" id="submit-btn">Summarize</button>
       </form>
 
-      <div id="summary-output">
-        <h3 id="summary-heading">Content Summary</h3>
+      <!-- Overall summary -->
+      <div id="summary-output" class="hidden">
+        <h3 id="summary-heading">📄 Overall Summary</h3>
         <p id="summary-text"></p>
       </div>
+
+      <!-- Per-person summaries (only shown for conversations) -->
+      <div id="per-person-output" class="hidden">
+        <h3 class="section-title">👥 Per-Person Summaries</h3>
+        <div id="person-cards"></div>
+      </div>
     </div>
+
     <script src="/static/js/script.js"></script>
   </body>
 </html>
